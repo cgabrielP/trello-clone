@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Plus } from "lucide-react"; // Ícono minimalista
 
 const AddTaskButton = ({ onAddTask }) => {
     const [showModal, setShowModal] = useState(false);
@@ -10,52 +11,53 @@ const AddTaskButton = ({ onAddTask }) => {
 
     const handleCloseModal = () => {
         setShowModal(false);
-        setTaskName("");  // Limpiar el campo cuando se cierra el modal
+        setTaskName("");
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (taskName.trim()) {
-            onAddTask(taskName);  // Llama a la función para agregar la tarea
-            handleCloseModal();  // Cerrar el modal
+            onAddTask(taskName);
+            handleCloseModal();
         }
     };
 
     return (
         <div className="text-center mt-4">
+            {/* Botón minimalista con solo un ícono */}
             <button
                 onClick={handleAddClick}
-                className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300"
+                className="p-2 rounded-full transition-transform duration-200 hover:scale-110"
             >
-                ¡Agregar tarea!
+                <Plus size={24} className="text-gray-700 hover:text-black" />
             </button>
 
             {/* Modal */}
             {showModal && (
                 <div className="fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 z-50">
-                    <div className="bg-white p-6 rounded-lg shadow-xl w-80">
-                        <h2 className="text-xl font-semibold mb-4 text-center">Nueva Tarea</h2>
+                    <div className="bg-white p-6 rounded-lg shadow-xl w-96 transform transition-all scale-95 animate-fadeIn">
+                        <h2 className="text-xl text-gray-800 font-semibold mb-4 text-center">Nueva Tarea</h2>
                         <form onSubmit={handleSubmit}>
                             <input
                                 type="text"
                                 placeholder="Nombre de la tarea"
                                 value={taskName}
                                 onChange={(e) => setTaskName(e.target.value)}
-                                className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:border-blue-500"
+                                className="w-full p-3 border border-gray-300 text-gray-900 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
-                            <div className="flex justify-between">
-                                <button
-                                    type="submit"
-                                    className="bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition duration-200"
-                                >
-                                    Agregar
-                                </button>
+                            <div className="flex justify-end space-x-3">
                                 <button
                                     type="button"
                                     onClick={handleCloseModal}
-                                    className="bg-red-500 text-white p-2 rounded-md hover:bg-red-600 transition duration-200"
+                                    className="text-gray-500 hover:text-red-500 transition duration-200"
                                 >
                                     Cancelar
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition duration-200"
+                                >
+                                    Agregar
                                 </button>
                             </div>
                         </form>

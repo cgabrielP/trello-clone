@@ -7,7 +7,7 @@ const Dashboard = ({user}) => {
         <div className="min-h-screen bg-gray-100 flex">
             {/* Sidebar */}
             <div className="w-64 bg-gray-800 flex-none text-white p-6">
-                <h2 className="text-2xl font-semibold mb-6">Dashboard</h2>
+                <h2 className="text-2xl font-semibold mb-6">Panel </h2>
                 <ul>
                     <li className="mb-4">
                         <a href="#" className="hover:text-gray-400">Inicio</a>
