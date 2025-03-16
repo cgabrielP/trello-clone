@@ -29,7 +29,7 @@ const Login = () => {
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
             <div className="bg-white p-8 rounded-lg shadow-lg w-96">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                    Iniciar Sesión
+                    Trello Clone
                 </h2>
                 {error && <p className="text-red-500 text-sm text-center mb-4">{error}</p>}
                 <form onSubmit={handleSubmit} className="space-y-4">
