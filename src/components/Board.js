@@ -1,13 +1,13 @@
 import React from 'react'
 import TodoList from './TodoList'
 
-const Board = ({userId}) => {
+const Board = ({ userId }) => {
     return (
         <>
-            <div className="bg-white p-6 rounded-lg shadow-lg flex justify-between">
-                <h2 className="p-2 order-first text-xl text-black font-semibold ">Tablero</h2>
+            <div className="w-full bg-white p-6 rounded-lg shadow-lg">
+                <h2 className="text-xl font-semibold text-black">Tablero</h2>
+                <TodoList userId={userId} />
             </div>
-            <TodoList userId={userId} />
         </>
     )
 }
